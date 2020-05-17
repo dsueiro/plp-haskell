@@ -43,6 +43,10 @@ promedio lista = if null lista then 0 else (sum lista) / fromIntegral (length li
 difPromedio :: [Float] -> [Float]
 difPromedio lista = map (\x -> x-(promedio lista)) lista
 
+todosIguales :: [Int] -> Bool
+todosIguales [] = True
+todosIguales x = foldr (\t sonIguales -> (t == head x) && sonIguales) True x 
+
 -- Tests
 main :: IO Counts
 main = do runTestTT allTests
